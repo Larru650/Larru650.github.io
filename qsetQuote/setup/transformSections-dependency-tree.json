@@ -1,0 +1,132 @@
+{
+  "script": "./server/nhiIntegration/transformSections.ts",
+  "dependencies": [
+    {
+      "script": "server/nhiIntegration/qabEnumTypes.ts"
+    },
+    {
+      "script": "server/nhiIntegration/transformSectionsLibrary.ts",
+      "dependencies": [
+        {
+          "script": "server/nhiIntegration/mappingFieldToEnumMap.ts"
+        },
+        {
+          "script": "src/customFunctionRegistry.ts"
+        },
+        {
+          "script": "src/customFunctions.ts",
+          "dependencies": [
+            {
+              "script": "src/reducers/addressLookupFeatureReducer.ts",
+              "dependencies": [
+                {
+                  "script": "src/reducers/questionSetTools.ts",
+                  "dependencies": [
+                    {
+                      "script": "src/tools/prerequisiteThisReference.ts"
+                    },
+                    {
+                      "script": "src/tools/questionDisplayStateTools.ts",
+                      "dependencies": [
+                        {
+                          "script": "src/actions/eventActions.ts"
+                        }
+                      ]
+                    },
+                    {
+                      "script": "src/tools/questionPrerequisites.ts",
+                      "dependencies": [
+                        {
+                          "script": "src/config/configuration.ts",
+                          "dependencies": [
+                            {
+                              "script": "src/config/configuration.Developer.ts"
+                            }
+                          ]
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "script": "src/reducers/reducerLibrary.ts"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "script": "src/reducers/initialState.ts",
+          "dependencies": [
+            {
+              "script": "src/interfaces/index.ts",
+              "dependencies": [
+                {
+                  "script": "src/interfaces/actionRunnerTypes.ts"
+                },
+                {
+                  "script": "src/interfaces/buttonTypesClient.ts"
+                },
+                {
+                  "script": "src/interfaces/controlTypes.ts"
+                },
+                {
+                  "script": "src/interfaces/displayStateTypes.ts"
+                },
+                {
+                  "script": "src/interfaces/eventTypes.ts"
+                },
+                {
+                  "script": "src/interfaces/featureToggle.ts"
+                },
+                {
+                  "script": "src/interfaces/functionTypes.ts"
+                },
+                {
+                  "script": "src/interfaces/inputTypesClient.ts"
+                },
+                {
+                  "script": "src/interfaces/questionSetTypesClient.ts"
+                },
+                {
+                  "script": "src/interfaces/questionTypesClient.ts"
+                },
+                {
+                  "script": "src/interfaces/reducerTypes.ts"
+                },
+                {
+                  "script": "src/interfaces/registrations.ts"
+                },
+                {
+                  "script": "src/interfaces/sectionAndGroupTypes.ts"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "script": "src/reducers/questionSetPayloadMapper.ts",
+          "dependencies": [
+            {
+              "script": "src/reducers/questionScriptResolver.ts"
+            },
+            {
+              "script": "src/reducers/sectionScriptResolver.ts"
+            }
+          ]
+        },
+        {
+          "script": "src/reducers/questionSetReducerLibrary.ts",
+          "dependencies": [
+            {
+              "script": "src/tools/listSearchUtility.ts"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "script": "src/tools/utilities.ts"
+    }
+  ]
+}

@@ -1,0 +1,41 @@
+.sidebar {
+  & .av-card {
+    border: 1px solid #59a9df;
+  }
+
+  ul.av-list-check {
+    & > li {
+      & > a {
+        text-decoration: none;
+      }
+
+      &:before {
+        background-image: url('/assets/svg/check-green.svg');
+      }
+
+      &.faq:before {
+        background-image: url('/assets/svg/question-circle.svg');
+      }
+
+      &.policy-wording:before {
+        background-image: url('/assets/svg/download.svg');
+      }
+
+      &.phone-us:before {
+        background-image: url('/assets/svg/mobile-alt.svg');
+      }
+
+      & > span {
+        cursor: pointer;
+        color: #1c87e5;
+        display: inline;
+      }
+    }
+
+    & > div {
+      display: none;
+      font-size: 14px;
+      padding: 0.5rem;
+    }
+  }
+}

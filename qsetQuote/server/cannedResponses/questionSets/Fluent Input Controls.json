@@ -1,0 +1,119 @@
+{
+  "questionSetId": "409ac634-7d21-4853-9d1e-caafefa8d4b0",
+  "version": "v0.0.0",
+  "friendlyName": "Fluent Input Controls",
+  "timestamp": "2020-01-01T00:00:00.000Z",
+  "stylesheets": [],
+  "questionFormats": [
+    "fluent",
+    "standard"
+  ],
+  "questions": {
+    "c2adb0e8-ca69-49ab-8d6a-edc71686fe47": {
+      "questionId": "c2adb0e8-ca69-49ab-8d6a-edc71686fe47",
+      "name": "textInput",
+      "dataType": "string",
+      "data": {
+        "textAndStyle": {
+          "standard": {
+            "controlType": "TextInput",
+            "questionText": "Text input"
+          },
+          "fluent": {
+            "controlType": "TextInput",
+            "questionText": "Hi, my name is {{value}}!"
+          }
+        },
+        "validation": [
+          {
+            "type": "required"
+          }
+        ]
+      },
+      "sectionId": "6b69ce17-f21c-4a94-a9cd-f9cf2293592e",
+      "order": 1
+    },
+    "58393f02-eb49-47e9-a685-b06b42298950": {
+      "questionId": "58393f02-eb49-47e9-a685-b06b42298950",
+      "name": "numberInput",
+      "dataType": "number",
+      "data": {
+        "textAndStyle": {
+          "standard": {
+            "controlType": "TextInput",
+            "questionText": "Number input"
+          },
+          "fluent": {
+            "controlType": "TextInput",
+            "questionText": "I am {{value}} years old."
+          }
+        },
+        "validation": [
+          {
+            "type": "numeric"
+          }
+        ]
+      },
+      "sectionId": "6b69ce17-f21c-4a94-a9cd-f9cf2293592e",
+      "order": 1
+    },
+    "447ec200-8b05-49c9-939b-1a77b5a15dff": {
+      "questionId": "447ec200-8b05-49c9-939b-1a77b5a15dff",
+      "name": "dropDown",
+      "dataType": "string",
+      "data": {
+        "textAndStyle": {
+          "standard": {
+            "controlType": "DropDownList",
+            "questionText": "Drop down list"
+          },
+          "fluent": {
+            "controlType": "DropDownList",
+            "questionText": "I like to {{value}} in my spare time."
+          }
+        },
+        "lookup": {
+          "go shopping": null,
+          "sleep": null,
+          "run": null
+        },
+        "validation": [
+          {
+            "type": "required"
+          }
+        ]
+      },
+      "sectionId": "6b69ce17-f21c-4a94-a9cd-f9cf2293592e",
+      "order": 1
+    },
+    "af2dfef5-c775-4d43-9b0e-d1438dc4c434": {
+      "questionId": "af2dfef5-c775-4d43-9b0e-d1438dc4c434",
+      "name": "button",
+      "dataType": "button",
+      "data": {
+        "textAndStyle": {
+          "standard": {
+            "controlType": "Button",
+            "buttonText": "Validate fields"
+          }
+        },
+        "dependentActions": [
+          {
+            "action": "validate-fields"
+          }
+        ]
+      },
+      "sectionId": "6b69ce17-f21c-4a94-a9cd-f9cf2293592e",
+      "order": 1
+    }
+  },
+  "sections": {
+    "6b69ce17-f21c-4a94-a9cd-f9cf2293592e": {
+      "sectionId": "6b69ce17-f21c-4a94-a9cd-f9cf2293592e",
+      "title": "Main",
+      "position": 1
+    }
+  },
+  "commonLookups": {},
+  "answers": {}
+}

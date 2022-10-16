@@ -1,0 +1,95 @@
+{
+  "questionSetId": "7fb8e68d-501c-4fe5-96c8-53f7b8a4300e",
+  "version": "v0.0.0",
+  "friendlyName": "Dynamic lookup list expressions",
+  "timestamp": "2020-01-01T00:00:00.000Z",
+  "stylesheets": [],
+  "questionFormats": [
+    "standard"
+  ],
+  "questions": {
+    "first-name": {
+      "questionId": "first-name",
+      "name": "firstName",
+      "dataType": "string",
+      "data": {
+        "textAndStyle": {
+          "standard": {
+            "controlType": "TextInput",
+            "questionText": "First name"
+          }
+        },
+        "validation": [
+          {
+            "type": "required"
+          }
+        ]
+      },
+      "sectionId": "main",
+      "order": 1
+    },
+    "last-name": {
+      "questionId": "last-name",
+      "name": "lastName",
+      "dataType": "string",
+      "data": {
+        "textAndStyle": {
+          "standard": {
+            "controlType": "TextInput",
+            "questionText": "Last name"
+          }
+        },
+        "validation": [
+          {
+            "type": "required"
+          }
+        ]
+      },
+      "sectionId": "main",
+      "order": 1
+    },
+    "names": {
+      "questionId": "names",
+      "name": "names",
+      "dataType": "array",
+      "data": {
+        "textAndStyle": {
+          "standard": {
+            "controlType": "DropDownList",
+            "questionText": "List of names"
+          }
+        },
+        "lookupExpr": "return { 'Bob Ross': null, 'John Wayne': null };"
+      },
+      "isMultiSelect": true,
+      "sectionId": "main",
+      "order": 1
+    },
+    "entered-names": {
+      "questionId": "entered-names",
+      "name": "enteredNames",
+      "dataType": "array",
+      "data": {
+        "textAndStyle": {
+          "standard": {
+            "controlType": "DropDownList",
+            "questionText": "Entered names"
+          }
+        },
+        "lookupExpr": "var fname = this.getAnswerValue('firstName');\n  var lname = this.getAnswerValue('lastName');\n  var sname = this.getAnswerValue('names');\n  var map = {};\n  map[fname + ' ' + lname] = null;\n  if (sname) { map[sname] = null; }\n  return map;"
+      },
+      "isMultiSelect": true,
+      "sectionId": "main",
+      "order": 1
+    }
+  },
+  "sections": {
+    "main": {
+      "sectionId": "main",
+      "title": "Main",
+      "position": 1
+    }
+  },
+  "commonLookups": {},
+  "answers": {}
+}

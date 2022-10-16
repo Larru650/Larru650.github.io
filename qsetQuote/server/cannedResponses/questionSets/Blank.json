@@ -1,0 +1,41 @@
+{
+  "questionSetId": "00000000-0000-0000-0000-000000000000",
+  "version": "v0.0.0",
+  "friendlyName": "Blank",
+  "timestamp": "2020-01-01T00:00:00.000Z",
+  "stylesheets": [],
+  "questionFormats": [
+    "standard"
+  ],
+  "questions": {
+    "195a1f44-22c7-438c-856b-7e053e49c1f2": {
+      "questionId": "195a1f44-22c7-438c-856b-7e053e49c1f2",
+      "name": "firstName",
+      "dataType": "string",
+      "data": {
+        "textAndStyle": {
+          "standard": {
+            "controlType": "TextInput",
+            "questionText": "First name"
+          }
+        },
+        "validation": [
+          {
+            "type": "required"
+          }
+        ]
+      },
+      "sectionId": "a245f641-0805-4551-a9be-e7cb3e2c2cef",
+      "order": 1
+    }
+  },
+  "sections": {
+    "a245f641-0805-4551-a9be-e7cb3e2c2cef": {
+      "sectionId": "a245f641-0805-4551-a9be-e7cb3e2c2cef",
+      "title": "Main",
+      "position": 1
+    }
+  },
+  "commonLookups": {},
+  "answers": {}
+}

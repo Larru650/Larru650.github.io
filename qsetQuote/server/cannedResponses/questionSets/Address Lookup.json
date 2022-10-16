@@ -1,0 +1,406 @@
+{
+  "questionSetId": "039bbdd6-bcf4-4d12-bbb3-be15bff5a2f0",
+  "version": "v0.0.0",
+  "friendlyName": "Address Lookup",
+  "timestamp": "2020-12-07T00:00:00.000Z",
+  "stylesheets": [],
+  "questionFormats": [
+    "standard"
+  ],
+  "questions": {
+    "validate-fields-button": {
+      "questionId": "validate-fields-button",
+      "name": "button",
+      "dataType": "button",
+      "data": {
+        "textAndStyle": {
+          "standard": {
+            "controlType": "Button",
+            "buttonText": "Validate fields"
+          }
+        },
+        "dependentActions": [
+          {
+            "action": "validate-fields"
+          }
+        ]
+      },
+      "sectionId": "main",
+      "order": 1
+    },
+    "lastName": {
+      "questionId": "lastName",
+      "name": "lastName",
+      "dataType": "string",
+      "data": {
+        "textAndStyle": {
+          "standard": {
+            "controlType": "TextInput",
+            "questionText": "Last name"
+          }
+        },
+        "validation": [
+          {
+            "type": "required"
+          }
+        ]
+      },
+      "sectionId": "main",
+      "order": 1
+    },
+    "propertyNameNumber": {
+      "questionId": "propertyNameNumber",
+      "name": "propertyNameNumber",
+      "dataType": "string",
+      "data": {
+        "textAndStyle": {
+          "standard": {
+            "controlType": "TextInput",
+            "questionText": "House number or name"
+          }
+        },
+        "dependentAnswers": {
+          "addressId": [
+            {
+              "condition": "eventType === 'change'",
+              "answer": ""
+            }
+          ]
+        },
+        "validation": [
+          {
+            "type": "required"
+          }
+        ]
+      },
+      "groupId": "address",
+      "sectionId": "main",
+      "order": 1
+    },
+    "postcode": {
+      "questionId": "postcode",
+      "name": "postcode",
+      "dataType": "string",
+      "data": {
+        "textAndStyle": {
+          "standard": {
+            "controlType": "TextInput",
+            "questionText": "Postcode"
+          }
+        },
+        "dependentAnswers": {
+          "addressId": [
+            {
+              "condition": "eventType === 'change'",
+              "answer": ""
+            }
+          ]
+        },
+        "validation": [
+          {
+            "type": "required"
+          }
+        ]
+      },
+      "groupId": "address",
+      "sectionId": "main",
+      "order": 1
+    },
+    "addressLookupButton": {
+      "questionId": "addressLookupButton",
+      "name": "addressLookupButton",
+      "dataType": "button",
+      "data": {
+        "textAndStyle": {
+          "standard": {
+            "controlType": "Button",
+            "buttonText": "Lookup"
+          }
+        },
+        "dependentActions": [
+          {
+            "action": "validate-fields",
+            "props": {
+              "fieldsToValidate": [
+                "propertyNameNumber",
+                "postcode"
+              ]
+            }
+          },
+          {
+            "action": "address-lookup",
+            "props": {
+              "searchFields": [
+                "postcode",
+                "propertyNameNumber"
+              ],
+              "lookupResultsId": "addressLookupResults",
+              "lookupButtonId": "addressLookupButton",
+              "noResultsFoundMessage": "No addresses match the values you entered. Try something less specific or enter the address manually.",
+              "errorLoadingAddressesMessage": "We're having problems loading the addresses. Please try again or enter your address manually."
+            }
+          }
+        ],
+        "validation": [
+          {
+            "type": "custom",
+            "validator": "var showingResults = this.isElementVisible('addressLookupResults');\n  var hasAddressId = !!fields.get('addressId').value;\n  var usingLookup = fields.get('addressEnterManuallyButton').value !== 'true';\n  var isOk = !usingLookup || showingResults || (usingLookup && hasAddressId);\n  return isOk;",
+            "message": "You need to search for and select an address"
+          }
+        ]
+      },
+      "groupId": "address",
+      "sectionId": "main",
+      "order": 1
+    },
+    "addressEnterManuallyButton": {
+      "questionId": "addressEnterManuallyButton",
+      "name": "addressEnterManuallyButton",
+      "dataType": "boolean",
+      "default": false,
+      "data": {
+        "textAndStyle": {
+          "standard": {
+            "controlType": "Switch",
+            "questionText": ""
+          }
+        },
+        "lookup": {
+          "false": {
+            "text": "Use address lookup"
+          },
+          "true": {
+            "text": "Enter manually"
+          }
+        }
+      },
+      "groupId": "address",
+      "sectionId": "main",
+      "order": 1
+    },
+    "addressLookupResults": {
+      "questionId": "addressLookupResults",
+      "name": "addressLookupResults",
+      "dataType": "string",
+      "data": {
+        "textAndStyle": {
+          "standard": {
+            "controlType": "DropDownList",
+            "placeholder": "Select an address",
+            "questionText": "",
+            "sortItemsBy": "numberPrefixedStringSorter"
+          }
+        },
+        "dependentActions": [
+          {
+            "action": "address-select",
+            "props": {
+              "lookupResultsId": "addressLookupResults",
+              "lookupButtonId": "addressLookupButton",
+              "searchFields": [
+                "propertyNameNumberSearchTerm",
+                "postcodeSearchTerm"
+              ],
+              "errorLoadingAddressMessage": "We're having problems loading the address you selected. Please try again or enter your address manually."
+            }
+          }
+        ],
+        "dependentAnswers": {
+          "propertyNameNumber": [
+            {
+              "condition": "!!this.getAnswer(sourceQuestionId).partial",
+              "answerExpr": "this.getAnswer(sourceQuestionId).partial.propertyNameNumber"
+            }
+          ],
+          "addressLine1": [
+            {
+              "condition": "!!this.getAnswer(sourceQuestionId).partial",
+              "answerExpr": "this.getAnswer(sourceQuestionId).partial.addressLine1"
+            }
+          ],
+          "addressLine2": [
+            {
+              "condition": "!!this.getAnswer(sourceQuestionId).partial",
+              "answerExpr": "this.getAnswer(sourceQuestionId).partial.addressLine2"
+            }
+          ],
+          "townCity": [
+            {
+              "condition": "!!this.getAnswer(sourceQuestionId).partial",
+              "answerExpr": "this.getAnswer(sourceQuestionId).partial.townCity"
+            }
+          ],
+          "county": [
+            {
+              "condition": "!!this.getAnswer(sourceQuestionId).partial",
+              "answerExpr": "this.getAnswer(sourceQuestionId).partial.county"
+            }
+          ],
+          "postcode": [
+            {
+              "condition": "!!this.getAnswer(sourceQuestionId).partial",
+              "answerExpr": "this.getAnswer(sourceQuestionId).partial.postcode"
+            }
+          ],
+          "addressId": [
+            {
+              "condition": "!!this.getAnswer(sourceQuestionId).partial",
+              "answerExpr": "this.getAnswer(sourceQuestionId).partial.addressId"
+            }
+          ]
+        },
+        "validation": [
+          {
+            "type": "required",
+            "condition": "this.isElementVisible(fieldName)",
+            "message": "You need to select an address"
+          }
+        ]
+      },
+      "groupId": "address",
+      "sectionId": "main",
+      "order": 1
+    },
+    "addressId": {
+      "questionId": "addressId",
+      "name": "addressId",
+      "dataType": "number",
+      "data": {
+        "textAndStyle": {
+          "standard": {
+            "controlType": "TextInput",
+            "questionText": "Address ID"
+          }
+        },
+        "validation": [
+          {
+            "type": "integer",
+            "messages": {}
+          }
+        ]
+      },
+      "groupId": "address",
+      "sectionId": "main",
+      "order": 1
+    },
+    "addressLine1": {
+      "questionId": "addressLine1",
+      "name": "addressLine1",
+      "dataType": "string",
+      "data": {
+        "textAndStyle": {
+          "standard": {
+            "controlType": "TextInput",
+            "questionText": "Address Line 1"
+          }
+        },
+        "validation": [
+          {
+            "type": "required",
+            "condition": "this.isElementVisible(fieldName)"
+          }
+        ]
+      },
+      "groupId": "address",
+      "sectionId": "main",
+      "order": 1
+    },
+    "addressLine2": {
+      "questionId": "addressLine2",
+      "name": "addressLine2",
+      "dataType": "string",
+      "data": {
+        "textAndStyle": {
+          "standard": {
+            "controlType": "TextInput",
+            "questionText": "Address Line 2"
+          }
+        }
+      },
+      "groupId": "address",
+      "sectionId": "main",
+      "order": 1
+    },
+    "townCity": {
+      "questionId": "townCity",
+      "name": "townCity",
+      "dataType": "string",
+      "data": {
+        "textAndStyle": {
+          "standard": {
+            "controlType": "TextInput",
+            "questionText": "Town or City"
+          }
+        },
+        "validation": [
+          {
+            "type": "required",
+            "condition": "this.isElementVisible(fieldName)"
+          }
+        ]
+      },
+      "groupId": "address",
+      "sectionId": "main",
+      "order": 1
+    },
+    "county": {
+      "questionId": "county",
+      "name": "county",
+      "dataType": "string",
+      "data": {
+        "textAndStyle": {
+          "standard": {
+            "controlType": "TextInput",
+            "questionText": "County"
+          }
+        },
+        "validation": [
+          {
+            "type": "required",
+            "condition": "this.isElementVisible(fieldName)"
+          }
+        ]
+      },
+      "groupId": "address",
+      "sectionId": "main",
+      "order": 1
+    },
+    "address-view": {
+      "questionId": "address-view",
+      "name": "addressView",
+      "dataType": "string",
+      "calculatedAnswer": "{{function:getAddressDetail}}",
+      "data": {
+        "textAndStyle": {
+          "standard": {
+            "controlType": "AddressView",
+            "questionText": "The insured address is"
+          }
+        },
+        "lookup": {
+          "addressControlPrefix": {
+            "text": ""
+          }
+        }
+      },
+      "sectionId": "main",
+      "order": 100
+    }
+  },
+  "sections": {
+    "main": {
+      "sectionId": "main",
+      "title": "Address",
+      "position": 1
+    },
+    "address": {
+      "sectionId": "address",
+      "title": "Address Lookup",
+      "isTemplate": false,
+      "position": 0,
+      "controlType": "AddressLookup"
+    }
+  },
+  "commonLookups": {},
+  "answers": {}
+}

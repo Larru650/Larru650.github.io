@@ -1,0 +1,373 @@
+{
+  "questionSetId": "887275c1-3f39-4e5b-9b08-eff4ab47a241",
+  "version": "v0.0.0",
+  "friendlyName": "Controls with markup",
+  "timestamp": "2020-01-01T00:00:00.000Z",
+  "stylesheets": [],
+  "questionFormats": [
+    "standard"
+  ],
+  "questions": {
+    "b9004544-fcf4-42b4-9b4c-56c317d5688a": {
+      "questionId": "b9004544-fcf4-42b4-9b4c-56c317d5688a",
+      "name": "textInput",
+      "dataType": "string",
+      "data": {
+        "textAndStyle": {
+          "standard": {
+            "controlType": "TextInput",
+            "placeholder": "Please enter some details",
+            "questionText": "Text input"
+          }
+        },
+        "helpInfo": {
+          "helpText": "### Header  \n  \nThis is a text input field."
+        },
+        "validation": [
+          {
+            "type": "required"
+          },
+          {
+            "type": "string-length",
+            "minLength": 2,
+            "maxLength": 35
+          }
+        ]
+      },
+      "sectionId": "9f53f150-ac90-41ec-9084-80a53734b83d",
+      "order": 1
+    },
+    "3fd582b3-d288-4580-9c1b-7177d44736e2": {
+      "questionId": "3fd582b3-d288-4580-9c1b-7177d44736e2",
+      "name": "numberInput",
+      "dataType": "number",
+      "data": {
+        "textAndStyle": {
+          "standard": {
+            "controlType": "TextInput",
+            "placeholder": "100",
+            "questionText": "Number Input using helpText"
+          }
+        },
+        "helpInfo": {
+          "helpText": "**Buildings:**  \n  \nYour buildings are classed as the actual structure of the property and its decorations including fixtures and fittings (including fitted carpets). It also includes outbuildings, garages, drives, patios, walls, fences, tennis courts and swimming pools.  \n  \n**Contents:**  \n  \nYour contents are classed as your household goods, eg furniture, furnishings, rugs, curtains, clothes, televisions, etc. as well as valuables and personal belongings within the home. These must be your property or of a joint policyholder or of anyone permanently living at the property."
+        },
+        "validation": [
+          {
+            "type": "numeric"
+          }
+        ]
+      },
+      "sectionId": "9f53f150-ac90-41ec-9084-80a53734b83d",
+      "order": 1
+    },
+    "3ecf4eba-6c0a-4b5b-933b-ca1d6c5e41b1": {
+      "questionId": "3ecf4eba-6c0a-4b5b-933b-ca1d6c5e41b1",
+      "name": "switch",
+      "dataType": "boolean",
+      "data": {
+        "textAndStyle": {
+          "standard": {
+            "controlType": "Switch",
+            "questionText": "Switch"
+          }
+        },
+        "helpInfo": {
+          "infoText": "###Info text  \n  Click 'On' or 'Off'."
+        },
+        "lookup": {
+          "true": {
+            "text": "On"
+          },
+          "false": {
+            "text": "Off"
+          }
+        },
+        "validation": [
+          {
+            "type": "required"
+          }
+        ]
+      },
+      "sectionId": "9f53f150-ac90-41ec-9084-80a53734b83d",
+      "order": 1
+    },
+    "b81368b2-6d98-4e2e-aae4-40dab8efee3a": {
+      "questionId": "b81368b2-6d98-4e2e-aae4-40dab8efee3a",
+      "name": "dropDown",
+      "dataType": "string",
+      "data": {
+        "textAndStyle": {
+          "standard": {
+            "controlType": "DropDownList",
+            "questionText": "Drop down list"
+          }
+        },
+        "helpInfo": {
+          "helpText": "### Dropdown  \n  A menu that offers a list of options."
+        },
+        "lookup": {
+          "first-value": {
+            "text": "First value"
+          },
+          "second-value": {
+            "text": "Second value"
+          }
+        },
+        "validation": [
+          {
+            "type": "required"
+          }
+        ]
+      },
+      "sectionId": "9f53f150-ac90-41ec-9084-80a53734b83d",
+      "order": 1
+    },
+    "0dd7b61c-931f-4ad9-a1da-77410cbdf39c": {
+      "questionId": "0dd7b61c-931f-4ad9-a1da-77410cbdf39c",
+      "name": "buttonList",
+      "dataType": "string",
+      "data": {
+        "textAndStyle": {
+          "standard": {
+            "controlType": "ButtonList",
+            "questionText": "Button list"
+          }
+        },
+        "helpInfo": {
+          "infoText": "Select one of the options."
+        },
+        "lookup": {
+          "first-value": {
+            "text": "First value"
+          },
+          "second-value": {
+            "text": "Second value"
+          },
+          "third-value": {
+            "text": "Third value"
+          }
+        },
+        "validation": [
+          {
+            "type": "required"
+          }
+        ]
+      },
+      "sectionId": "9f53f150-ac90-41ec-9084-80a53734b83d",
+      "order": 1
+    },
+    "97e8bc18-d146-4d47-aa15-c2009d2fe839": {
+      "questionId": "97e8bc18-d146-4d47-aa15-c2009d2fe839",
+      "name": "buttonListMultiSelect",
+      "dataType": "array",
+      "data": {
+        "textAndStyle": {
+          "standard": {
+            "controlType": "ButtonList",
+            "questionText": "Button list (multiple select)"
+          }
+        },
+        "helpInfo": {
+          "infoText": "Select at least one option."
+        },
+        "lookup": {
+          "first-value": {
+            "text": "First value"
+          },
+          "second-value": {
+            "text": "Second value"
+          },
+          "third-value": {
+            "text": "Third value"
+          }
+        },
+        "validation": [
+          {
+            "type": "required"
+          }
+        ]
+      },
+      "isMultiSelect": true,
+      "sectionId": "9f53f150-ac90-41ec-9084-80a53734b83d",
+      "order": 1
+    },
+    "4f86b8e7-fcb9-495a-9737-e1a30fa1b62d": {
+      "questionId": "4f86b8e7-fcb9-495a-9737-e1a30fa1b62d",
+      "name": "imageRadioButtonList",
+      "dataType": "string",
+      "data": {
+        "textAndStyle": {
+          "standard": {
+            "controlType": "ImageButtonList",
+            "questionText": "Image button list"
+          }
+        },
+        "helpInfo": {
+          "infoText": "Click on one of the images."
+        },
+        "lookup": {
+          "Flat": {
+            "image": "houseTypes/flat.png"
+          },
+          "Bungalow": {
+            "image": "houseTypes/bungalow.png"
+          },
+          "House": {
+            "image": "houseTypes/house2.svg"
+          }
+        },
+        "validation": [
+          {
+            "type": "required"
+          }
+        ]
+      },
+      "sectionId": "9f53f150-ac90-41ec-9084-80a53734b83d",
+      "order": 1
+    },
+    "367698ec-7aa5-4fd8-b3d5-eb568331acfa": {
+      "questionId": "367698ec-7aa5-4fd8-b3d5-eb568331acfa",
+      "name": "imageCheckboxButtonList",
+      "dataType": "array",
+      "data": {
+        "textAndStyle": {
+          "standard": {
+            "controlType": "ImageButtonList",
+            "questionText": "Image button list (multi-select)"
+          }
+        },
+        "helpInfo": {
+          "infoText": "Select at least one option."
+        },
+        "lookup": {
+          "Flat": {
+            "image": "houseTypes/flat.png"
+          },
+          "Bungalow": {
+            "image": "houseTypes/bungalow.png"
+          },
+          "House": {
+            "text": "Large house",
+            "image": "houseTypes/house2.svg"
+          }
+        },
+        "validation": [
+          {
+            "type": "required"
+          }
+        ]
+      },
+      "isMultiSelect": true,
+      "sectionId": "9f53f150-ac90-41ec-9084-80a53734b83d",
+      "order": 1
+    },
+    "8a02bed8-9997-444f-a6c5-159b2581636c": {
+      "questionId": "8a02bed8-9997-444f-a6c5-159b2581636c",
+      "name": "auto-complete",
+      "dataType": "string",
+      "data": {
+        "textAndStyle": {
+          "standard": {
+            "controlType": "AutoCompleteList",
+            "minSearchTermLength": 1,
+            "placeholder": "Please enter some details",
+            "questionText": "Auto complete list"
+          }
+        },
+        "helpInfo": {
+          "helpText": "Start typing to get a list of possible matches."
+        },
+        "lookup": {
+          "Flat": null,
+          "Bungalow": null,
+          "Large house": null
+        },
+        "validation": [
+          {
+            "type": "required"
+          },
+          {
+            "type": "custom",
+            "validator": "  if (eventType === 'change' || eventType === 'blur') {\n    return true;\n  }\n  var lookup = fields.get('question:' + fieldName).data.lookup;\n  return lookup[fieldValue] !== undefined;",
+            "message": "Please select one of the options after typing some text"
+          }
+        ]
+      },
+      "sectionId": "9f53f150-ac90-41ec-9084-80a53734b83d",
+      "order": 1
+    },
+    "7f2a7954-36ed-42ca-911f-f8afa707b772": {
+      "questionId": "7f2a7954-36ed-42ca-911f-f8afa707b772",
+      "name": "datePicker",
+      "dataType": "date",
+      "data": {
+        "textAndStyle": {
+          "standard": {
+            "controlType": "DatePicker",
+            "questionText": "Date Picker"
+          }
+        },
+        "helpInfo": {
+          "infoText": "Select a day from the calendar."
+        },
+        "validation": [
+          {
+            "type": "required"
+          },
+          {
+            "type": "date",
+            "minValueExpr": "{{today:Date}}",
+            "maxValueExpr": "{{today + 50 days:Date}}"
+          }
+        ]
+      },
+      "sectionId": "9f53f150-ac90-41ec-9084-80a53734b83d",
+      "order": 1
+    },
+    "addd10b0-313a-4e54-b866-0bb05253c061": {
+      "questionId": "addd10b0-313a-4e54-b866-0bb05253c061",
+      "name": "dateDropDown",
+      "dataType": "date",
+      "data": {
+        "textAndStyle": {
+          "standard": {
+            "controlType": "DateDropDown",
+            "questionText": "Date drop down"
+          }
+        },
+        "helpInfo": {
+          "infoText": "Select day, month and year."
+        },
+        "validation": [
+          {
+            "type": "custom",
+            "validator": "  var isDayTouched = fields.getData(fieldName + '~Kday')?.isTouched; \n  var isMonthTouched = fields.getData(fieldName + '~Kmonth')?.isTouched; \n  var isYearTouched = fields.getData(fieldName + '~Kyear')?.isTouched; \n  return (isDayTouched && isMonthTouched && isYearTouched) || 'stop-validating'; ",
+            "message": ""
+          },
+          {
+            "type": "custom",
+            "validator": "  var value = fields.get(fieldName).value; \n let date = value?.split('-').filter(part => part?.length); \n const completeDate = date?.length === 3; \n return completeDate; ",
+            "message": "Please select day, month and year."
+          },
+          {
+            "type": "date",
+            "minValueExpr": "{{today - 130 years:Date}}",
+            "maxValueExpr": "{{today - 18 years:Date}}"
+          }
+        ]
+      },
+      "sectionId": "9f53f150-ac90-41ec-9084-80a53734b83d",
+      "order": 1
+    }
+  },
+  "sections": {
+    "9f53f150-ac90-41ec-9084-80a53734b83d": {
+      "sectionId": "9f53f150-ac90-41ec-9084-80a53734b83d",
+      "title": "Main",
+      "position": 1
+    }
+  },
+  "commonLookups": {},
+  "answers": {}
+}

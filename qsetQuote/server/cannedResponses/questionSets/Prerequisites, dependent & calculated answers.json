@@ -1,0 +1,132 @@
+{
+  "questionSetId": "e843ce49-f433-4e70-9235-6d125dfec6d8",
+  "version": "v0.0.0",
+  "friendlyName": "Prerequisites, dependent & calculated answers",
+  "timestamp": "2020-01-01T00:00:00.000Z",
+  "stylesheets": [],
+  "questionFormats": [
+    "standard"
+  ],
+  "questions": {
+    "ac3f2319-2eee-4ff0-be98-6468b573234f": {
+      "questionId": "ac3f2319-2eee-4ff0-be98-6468b573234f",
+      "name": "propertyType",
+      "dataType": "string",
+      "data": {
+        "textAndStyle": {
+          "standard": {
+            "controlType": "DropDownList",
+            "questionText": "What type of property?"
+          }
+        },
+        "dependentAnswers": {
+          "0593affd-62f5-42bf-86dd-1c6842c3790b": [
+            {
+              "condition": "{{answer}} is Flat",
+              "answer": "Straw"
+            },
+            {
+              "condition": "{{answer}} is in [Bungalow, House]",
+              "answer": "Stone"
+            }
+          ]
+        },
+        "lookup": {
+          "House": null,
+          "Flat": null,
+          "Bungalow": null
+        },
+        "validation": [
+          {
+            "type": "required"
+          }
+        ]
+      },
+      "sectionId": "5c26be9e-a7a0-4bb6-bc75-68dc7add5167",
+      "order": 1
+    },
+    "26b40f82-efa1-49ad-874c-61f83ddbe496": {
+      "questionId": "26b40f82-efa1-49ad-874c-61f83ddbe496",
+      "name": "houseType",
+      "dataType": "string",
+      "data": {
+        "textAndStyle": {
+          "standard": {
+            "controlType": "DropDownList",
+            "questionText": "What type of house?"
+          }
+        },
+        "lookup": {
+          "Detached": null,
+          "Semi-detached": null,
+          "Terrace": null
+        },
+        "validation": [
+          {
+            "type": "required"
+          }
+        ]
+      },
+      "prerequisites": [
+        "{{propertyType}} is House"
+      ],
+      "sectionId": "5c26be9e-a7a0-4bb6-bc75-68dc7add5167",
+      "order": 1
+    },
+    "0593affd-62f5-42bf-86dd-1c6842c3790b": {
+      "questionId": "0593affd-62f5-42bf-86dd-1c6842c3790b",
+      "name": "wallType",
+      "dataType": "string",
+      "data": {
+        "textAndStyle": {
+          "standard": {
+            "controlType": "DropDownList",
+            "questionText": "What are the walls made of?"
+          }
+        },
+        "lookup": {
+          "Brick": null,
+          "Stone": null,
+          "Straw": null
+        },
+        "validation": [
+          {
+            "type": "required"
+          }
+        ]
+      },
+      "sectionId": "5c26be9e-a7a0-4bb6-bc75-68dc7add5167",
+      "order": 1
+    },
+    "c9f51777-0650-4e02-ada8-8917980d6233": {
+      "questionId": "c9f51777-0650-4e02-ada8-8917980d6233",
+      "name": "roofType",
+      "dataType": "string",
+      "calculatedAnswer": "switch (this.getAnswerValue('wallType')) { case 'Stone': return 'Tile'; case 'Brick': return 'Timber'; default: return 'Thatch'; }",
+      "data": {
+        "textAndStyle": {
+          "standard": {
+            "controlType": "ReadOnlyText",
+            "questionText": "What is the roof made from? (Calculated from the question above)"
+          }
+        },
+        "validation": [
+          {
+            "type": "required"
+          }
+        ]
+      },
+      "sectionId": "5c26be9e-a7a0-4bb6-bc75-68dc7add5167",
+      "order": 1
+    }
+  },
+  "sections": {
+    "5c26be9e-a7a0-4bb6-bc75-68dc7add5167": {
+      "sectionId": "5c26be9e-a7a0-4bb6-bc75-68dc7add5167",
+      "title": "Main",
+      "position": 1
+    }
+  },
+  "commonLookups": {},
+  "answers": {}
+}

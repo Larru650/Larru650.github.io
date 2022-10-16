@@ -1,0 +1,75 @@
+{
+  "env": {
+    "es6": true,
+    "browser": true,
+    "jasmine": true,
+    "jest": true
+  },
+  "extends": [
+    "eslint:recommended",
+    "plugin:react/recommended",
+    "plugin:prettier/recommended"
+  ],
+  "parser": "babel-eslint",
+  "plugins": [
+    "react",
+    "prettier"
+  ],
+  "settings": {
+    "react": {
+      "version": "detect"
+    }
+  },
+  "overrides": [
+    {
+      "env": {
+        "browser": true,
+        "jasmine": true,
+        "jest": true
+      },
+      "files": [
+        "src/**/*.ts",
+        "src/**/*.tsx",
+        "server/**/*.ts",
+        "setup/*.ts"
+      ],
+      "extends": [
+        "eslint:recommended",
+        "plugin:react/recommended",
+        "plugin:@typescript-eslint/recommended",
+        "prettier/@typescript-eslint",
+        "plugin:prettier/recommended"
+      ],
+      "plugins": [
+        "react",
+        "@typescript-eslint",
+        "prettier"
+      ],
+      "rules": {
+        "curly": "error",
+        "prettier/prettier": [
+          "error",
+          {
+            "singleQuote": true,
+            "endOfLine": "auto"
+          }
+        ],
+        "@typescript-eslint/no-explicit-any": 0,
+        "@typescript-eslint/no-use-before-define": [
+          "error",
+          {
+            "functions": false,
+            "typedefs": false
+          }
+        ]
+      },
+      "settings": {
+        "react": {
+          "pragma": "React",
+          "version": "detect"
+        }
+      },
+      "parser": "@typescript-eslint/parser"
+    }
+  ]
+}

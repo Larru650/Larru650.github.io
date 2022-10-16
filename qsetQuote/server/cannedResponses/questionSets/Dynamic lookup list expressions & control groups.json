@@ -1,0 +1,189 @@
+{
+  "questionSetId": "3165b9f3-0c6e-43d8-b2cb-2ff41f8d0118",
+  "version": "v0.0.0",
+  "friendlyName": "Dynamic lookup list expressions & control groups",
+  "timestamp": "2020-01-01T00:00:00.000Z",
+  "stylesheets": [],
+  "questionFormats": [
+    "standard"
+  ],
+  "questions": {
+    "needs-details": {
+      "questionId": "needs-details",
+      "name": "needDetails",
+      "dataType": "boolean",
+      "data": {
+        "textAndStyle": {
+          "standard": {
+            "controlType": "Switch",
+            "questionText": "Do you need to provide some details?"
+          }
+        },
+        "dependentActions": [
+          {
+            "action": "add-control-group",
+            "condition": "this.getAnswerValue('needDetails') === true && !this.getQuestion({ questionId: 'first-name-text', groupNumber: 1 })",
+            "props": {
+              "groupId": "group-section"
+            }
+          }
+        ],
+        "lookupExpr": "{{commonLookup:yesNo}}",
+        "validation": [
+          {
+            "type": "required"
+          }
+        ]
+      },
+      "sectionId": "main-section",
+      "order": 1
+    },
+    "first-name-text": {
+      "questionId": "first-name-text",
+      "name": "firstName",
+      "dataType": "string",
+      "data": {
+        "textAndStyle": {
+          "standard": {
+            "controlType": "TextInput",
+            "questionText": "First name"
+          }
+        },
+        "validation": [
+          {
+            "type": "required"
+          }
+        ]
+      },
+      "groupId": "group-section",
+      "sectionId": "main-section",
+      "order": 1
+    },
+    "last-name-text": {
+      "questionId": "last-name-text",
+      "name": "lastName",
+      "dataType": "string",
+      "data": {
+        "textAndStyle": {
+          "standard": {
+            "controlType": "TextInput",
+            "questionText": "Last name"
+          }
+        },
+        "validation": [
+          {
+            "type": "required"
+          }
+        ]
+      },
+      "groupId": "group-section",
+      "prerequisites": [
+        "{{firstName}} is not ''"
+      ],
+      "sectionId": "main-section",
+      "order": 1
+    },
+    "remove-group-button": {
+      "questionId": "remove-group-button",
+      "name": "removeGroupButton",
+      "dataType": "button",
+      "default": false,
+      "data": {
+        "textAndStyle": {
+          "standard": {
+            "controlType": "Button",
+            "buttonText": "Remove",
+            "buttonStyle": "danger",
+            "type": "button"
+          }
+        },
+        "dependentActions": [
+          {
+            "action": "remove-control-group"
+          }
+        ]
+      },
+      "groupId": "group-section",
+      "prerequisites": [
+        "{{groupNumber}} > 1"
+      ],
+      "sectionId": "main-section",
+      "order": 1
+    },
+    "add-group-button": {
+      "questionId": "add-group-button",
+      "name": "addGroup",
+      "dataType": "button",
+      "data": {
+        "textAndStyle": {
+          "standard": {
+            "controlType": "Button",
+            "buttonText": "Add another"
+          }
+        },
+        "dependentActions": [
+          {
+            "action": "add-control-group",
+            "props": {
+              "groupId": "group-section"
+            }
+          }
+        ],
+        "validation": [
+          {
+            "type": "required"
+          }
+        ]
+      },
+      "prerequisites": [
+        "{{needDetails}} is true"
+      ],
+      "sectionId": "main-section",
+      "order": 10
+    },
+    "entered-names": {
+      "questionId": "entered-names",
+      "name": "enteredNames",
+      "dataType": "array",
+      "data": {
+        "textAndStyle": {
+          "standard": {
+            "controlType": "DropDownList",
+            "questionText": "Entered names"
+          }
+        },
+        "lookupExpr": "{{function:createListOfPeople}}"
+      },
+      "isMultiSelect": true,
+      "sectionId": "main-section",
+      "order": 20
+    }
+  },
+  "sections": {
+    "main-section": {
+      "sectionId": "main-section",
+      "title": "Main",
+      "position": 1
+    },
+    "group-section": {
+      "sectionId": "group-section",
+      "title": "{{Ordinal}} Control Group ({{index}})",
+      "isTemplate": true,
+      "position": 1,
+      "prerequisites": [
+        "{{needDetails}} is true"
+      ]
+    }
+  },
+  "commonLookups": {
+    "yesNo": {
+      "true": {
+        "text": "Yes"
+      },
+      "false": {
+        "text": "No"
+      }
+    }
+  },
+  "answers": {}
+}

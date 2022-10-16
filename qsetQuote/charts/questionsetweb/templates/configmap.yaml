@@ -1,0 +1,45 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: {{ .Chart.Name }}-config
+  labels:
+    app: {{ .Chart.Name }}
+    chart: "{{ .Chart.Name }}-{{ .Chart.Version }}"
+    release: {{ .Release.Name }}
+data:
+  app.adfsAuthEnabled: "{{ .Values.app.adfsAuthEnabled }}"
+  app.adfsIssuerThumbprint: {{ .Values.app.adfsIssuerThumbprint }}
+  app.adfsIssuerUri: {{ .Values.app.adfsIssuerUri }}
+  app.configEnvironment: {{ .Values.app.configEnvironment }}
+  app.databaseCollectionName: {{ .Values.app.databaseCollectionName }}
+  app.databaseEndpoint: {{ .Values.app.databaseEndpoint }}
+  app.databaseKey: {{ .Values.app.databaseKey }}
+  app.databaseName: {{ .Values.app.databaseName }}
+  app.ddApplicationId: {{ .Values.app.ddApplicationId }}
+  app.ddClientToken: {{ .Values.app.ddClientToken }}
+  app.ddRumEnabled: "{{ .Values.app.ddRumEnabled }}"
+  app.ddTraceEnabled: "{{ .Values.app.ddTraceEnabled }}"
+  app.debugFlags: {{ .Values.app.debugFlags }}
+  app.developerModeEnabled: "{{ .Values.app.developerModeEnabled }}"
+  app.endpoint: {{ .Values.app.endpoint }}
+  app.environment: {{ .Values.app.environment }}
+  app.featureToggleExceptionValidityWindow: {{ .Values.app.featureToggleExceptionValidityWindow }}
+  app.featureToggleServiceUri: {{ .Values.app.featureToggleServiceUri }}
+  app.gtmEnabled: "{{ .Values.app.gtmEnabled }}"
+  app.gtmId: {{ .Values.app.gtmId }}
+  app.homeProtectHomepageEnabled: "{{ .Values.app.homeProtectHomepageEnabled }}"
+  app.hotjarEnabled: "{{ .Values.app.hotjarEnabled }}"
+  app.hotjarId: "{{ .Values.app.hotjarId }}"
+  app.hotjarTrackingCode: "{{ .Values.app.hotjarTrackingCode }}"
+  app.logging.verbose: "{{ .Values.app.logging.verbose }}"
+  app.namespace: {{ .Values.app.namespace }}
+  app.optimisationEnabled: "{{ .Values.app.optimisationEnabled }}"
+  app.port: "{{ .Values.app.port }}"
+  app.quoteAndBuyServiceUri: {{ .Values.app.quoteAndBuyServiceUri }}
+  app.releaseVersion: {{ .Values.app.releaseVersion }}
+  app.schemeAndHost: {{ .Values.app.schemeAndHost }}
+  app.serveStaticContent: "{{ .Values.app.serveStaticContent }}"
+  app.useFilePersistence: "{{ .Values.app.useFilePersistence }}"
+  app.useSecureServer: "{{ .Values.app.useSecureServer }}"
+  strategy.rollingUpdate.maxSurge: "{{ .Values.strategy.rollingUpdate.maxSurge }}"
+  strategy.rollingUpdate.maxUnavailable: "{{ .Values.strategy.rollingUpdate.maxUnavailable }}"

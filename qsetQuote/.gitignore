@@ -1,0 +1,54 @@
+# See https://help.github.com/articles/ignoring-files/ for more about ignoring files.
+
+# dependencies
+node_modules
+public/assets/fonts/*
+public/assets/images/*
+!public/assets/images/hp-logo.png
+public/assets/svg/*
+!public/assets/svg/download.svg
+!public/assets/svg/mobile-alt.svg
+!public/assets/svg/question-circle.svg
+!public/assets/svg/trustpilot.svg
+!public/assets/svg/trustpilot-small.svg
+public/bootstrap
+public/style-guide*.css
+
+/.pnp
+.pnp.js
+**/cannedResponses/answer-set*.json
+password.txt
+debug.log
+
+# testing
+/coverage
+**/cannedResponses/answer-set*.json
+
+# production
+build
+server-build
+compiled
+
+# cache
+server/qs-cache
+
+# iis node hosting
+**/iisnode
+
+# part of the build process
+/package-backup.json
+/compiled
+
+# misc
+.DS_Store
+.npmrc
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+*.bak
+build-setup.log

@@ -1,0 +1,35 @@
+kind: NetworkPolicy
+apiVersion: networking.k8s.io/v1
+metadata:
+  name: {{ .Chart.Name }}-ingress-policy
+  namespace: {{ .Values.app.namespace }}
+spec:
+  podSelector: 
+    matchLabels:
+      app: {{ .Chart.Name }}      
+  ingress:
+    - from:
+      - namespaceSelector:
+          matchLabels:
+            namespace: istio-system
+      - namespaceSelector:
+          matchLabels:
+            env: {{ .Values.app.namespace }}
+      - ipBlock:
+          cidr: {{ .Values.ingress.ipRangeKingston }}
+      - ipBlock:
+          cidr: {{ .Values.ingress.ipRangeEnvLAN }}
+---
+kind: NetworkPolicy
+apiVersion: networking.k8s.io/v1
+metadata:
+  name: external-ingress-policy
+  namespace: {{ .Values.app.namespace }}
+spec:
+  podSelector:
+    matchLabels:
+      app: nginx-ingress
+  ingress: 
+    - {}
+  policyTypes:
+    - Ingress

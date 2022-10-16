@@ -1,0 +1,70 @@
+replicaCount: #{replicaCount}
+
+image:
+  repository: #{acrName}.azurecr.io/#{appName}
+  pullPolicy: IfNotPresent
+  tag: latest
+
+service:
+  name: node
+  type: ClusterIP
+  port: 80
+  targetPort: 80
+
+strategy:
+  rollingUpdate:
+    maxSurge: #{maxSurge}
+    maxUnavailable: #{maxUnavailable}
+
+ingress:
+  ipRangeKingston: #{ingressIpRangeKingston}
+  ipRangeEnvLAN: #{ingressIpRangeEnvLAN}
+
+istio:
+  hostname: #{virtualServiceHost}
+  gateWayType: #{gateWayType}
+
+app:
+  adfsAuthEnabled: #{adfsAuthEnabled}
+  adfsIssuerThumbprint: #{AdfsIssuerThumbprint}
+  adfsIssuerUri: #{AdfsIssuerUri}
+  configEnvironment: Octopus
+  databaseCollectionName: #{databaseCollectionName}
+  databaseEndpoint: #{databaseEndpoint}
+  databaseKey: #{databaseKey}
+  databaseName: #{databaseName}
+  ddApplicationId: #{ddApplicationId}
+  ddClientToken: #{ddClientToken}
+  ddRumEnabled: #{ddRumEnabled}
+  ddTraceEnabled: #{ddTraceEnabled}
+  debugFlags: #{debugFlags}
+  developerModeEnabled: #{developerModeEnabled}
+  endpoint: #{appEndpoint}
+  environment: #{environment}
+  featureToggleExceptionValidityWindow: #{featureToggleExceptionValidityWindow}
+  featureToggleServiceUri: #{featureToggleServiceUri}
+  gtmEnabled: #{gtmEnabled}
+  gtmId: #{gtmId}
+  homeProtectHomepageEnabled: #{homeProtectHomepageEnabled}
+  hotjarEnabled: #{hotjarEnabled}
+  hotjarId: #{hotjarId}
+  hotjarTrackingCode: #{hotjarTrackingCode}
+  logging:
+    verbose: #{verboseLogging}
+  namespace: #{namespace}
+  optimisationEnabled: #{optimisationEnabled}
+  port: 80
+  quoteAndBuyServiceUri: #{quoteAndBuyServiceUri}
+  releaseVersion: #{releaseVersion}
+  schemeAndHost: #{appWebsiteSchemeAndHost}
+  serveStaticContent: true
+  useFilePersistence: #{useFilePersistence}
+  useSecureServer: false
+
+resources:
+  requests:
+    memory: "#{memoryRequests}"
+    cpu: "#{cpuRequests}"
+  limits:
+    memory: "#{memoryLimits}"
+    cpu: "#{cpuLimits}"

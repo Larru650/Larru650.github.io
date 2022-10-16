@@ -1,0 +1,70 @@
+replicaCount: 1
+
+image:
+  repository: acrdevne.azurecr.io/homeprotect
+  pullPolicy: IfNotPresent
+  tag: latest
+
+service:
+  name: node
+  type: ClusterIP
+  port: 80
+  targetPort: 80
+
+strategy:
+  rollingUpdate:
+    maxSurge: 1
+    maxUnavailable: 1
+
+istio:
+  hostname: questionset-dev.homeprotect.co.uk
+  gateWayType: internal
+
+ingress:
+  ipRangeKingston: 192.168.10.0/22
+  ipRangeEnvLAN: 192.168.176.0/24
+
+app:
+  adfsAuthEnabled: false
+  adfsIssuerThumbprint: F0715A005B7F227289C2CCD9FB9802A7027CB384
+  adfsIssuerUri: https://adfs.avantia-group.com/adfs/ls/
+  configEnvironment: Octopus
+  databaseCollectionName: CommonTable
+  databaseEndpoint: https://customerdev-cosmos.documents.azure.com:443/
+  databaseKey: RVeVcofyAvfwS3crHwbg4LaZ7cmCKZdmI6MYr8hV2lwDp3We2HtHldSYu4FsWoClO2nRqFx9yBRsawcQXCh2TQ==
+  databaseName: CustomerPortalDev
+  ddApplicationId: 0554b446-b12d-496d-8f17-d8a3780bc772
+  ddClientToken: pub39f12a277235769599c2c429bbf21098
+  ddRumEnabled: false
+  ddTraceEnabled: false
+  debugFlags: TimeTaken
+  developerModeEnabled: false
+  endpoint: /questionsetdev
+  environment: dev
+  featureToggleExceptionValidityWindow: 00:01:00
+  featureToggleServiceUri: https://services-dev.avantiagroup.co.uk/FeatureToggleService/api/FeatureToggles/{application-name}
+  gtmEnabled: true
+  gtmId: GTM-5LMZFVW
+  homeProtectHomepageEnabled: true
+  hotjarEnabled: false
+  hotjarId: 0
+  hotjarTrackingCode: 0
+  logging:
+    verbose: false
+  namespace: local-dev
+  optimisationEnabled: true
+  port: 80
+  quoteAndBuyServiceUri: https://quote-staging.homeprotect.co.uk/api/
+  releaseVersion: 0.0.1
+  schemeAndHost: https://questionset-dev.homeprotect.co.uk
+  serveStaticContent: true
+  useFilePersistence: true
+  useSecureServer: false
+
+resources:
+  requests:
+    memory: "250Mi"
+    cpu: "150m"
+  limits:
+    memory: "1000Mi"
+    cpu: "1000m"

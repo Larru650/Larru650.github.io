@@ -1,0 +1,7 @@
+Dockerfile
+draft.toml
+charts/
+.git
+build
+server-build
+node_modules

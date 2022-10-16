@@ -1,0 +1,275 @@
+@charset "UTF-8";
+@import 'node_modules/@avantia/style-guide/_variables.scss';
+
+@media (min-width: 700px) {
+  .av-error-message {
+    display: block;
+  }
+}
+
+.av-card.av-card-child .form-group > label {
+  color: $headings-color;
+}
+
+.hp-switch,
+.hp-image-radio-button-list,
+.hp-image-checkbox-button-list {
+  & input[type='radio'],
+  & input[type='checkbox'] {
+    &,
+    &:focus {
+      appearance: none;
+      outline-width: 0;
+      position: absolute;
+      max-width: 0;
+      max-height: 0;
+      border: none;
+      padding: 0 0 0 0;
+    }
+  }
+}
+
+.hp-image-radio-button-list,
+.hp-image-checkbox-button-list {
+  & .av-field-section {
+    display: flex;
+    & label {
+      position: relative;
+      max-width: 9rem;
+      cursor: pointer;
+      border: 1px solid rgb(27, 135, 230);
+      border-radius: $corner-radius;
+      padding: 1rem;
+      margin-right: 0.5rem;
+
+      &.hp-checked {
+        background-color: rgba(27, 135, 230, 0.5);
+      }
+
+      &:hover {
+        background-color: rgba(27, 135, 230, 0.75);
+      }
+
+      & > img {
+        display: block;
+        max-width: 5rem;
+        max-height: 5rem;
+        margin-left: auto;
+        margin-right: auto;
+      }
+
+      & > span {
+        display: block;
+        margin-top: 0.5rem;
+        text-align: center;
+      }
+    }
+  }
+}
+
+.hp-radio-button-list,
+.hp-checkbox-button-list {
+  & .av-field-section {
+    & > .hp-float {
+      & > .btn {
+        margin-bottom: 7px;
+      }
+    }
+  }
+}
+
+.hp-auto-complete {
+  & .av-field-section {
+    position: relative;
+
+    & ul {
+      position: absolute;
+      z-index: 500;
+      margin-top: 1px;
+      background-color: white;
+      & li {
+        cursor: pointer;
+        margin: 0;
+        border: 1px solid $input-border-color;
+        border-bottom-style: none;
+        &:last-of-type {
+          border-bottom-style: solid;
+        }
+
+        &:hover {
+          background-color: rgba(27, 135, 230, 0.5);
+        }
+
+        &.hp-no-matches {
+          color: $input-error-color;
+          background-color: $input-error-bg-color;
+          border-color: $input-error-color;
+        }
+      }
+    }
+  }
+}
+
+.hp-date-picker {
+  & .date-input-group {
+    justify-content: space-between;
+    & > input {
+      display: inline-flex;
+      &:nth-of-type(1) {
+        width: 55px;
+        margin-right: 0.5rem;
+      }
+      &:nth-of-type(2) {
+        width: 126px;
+        margin-right: 0.5rem;
+      }
+      &:nth-of-type(3) {
+        width: 80px;
+      }
+    }
+    & button {
+      border: none;
+      background: transparent;
+      outline: none;
+      & img {
+        max-height: 43px;
+        margin-left: 0.5rem;
+        padding-bottom: 3px;
+      }
+    }
+  }
+}
+
+.hp-read-only-text {
+  & span {
+    font-size: 20px;
+  }
+}
+
+.hp-help-text,
+.hp-info-text-container {
+  border-radius: 5px !important;
+  padding: 1em;
+  margin: 0.4em 0;
+}
+
+.hp-help-text {
+  border: 1px solid #8dc63f !important;
+  background-color: rgba(141, 198, 63, 0.1) !important;
+}
+
+.hp-help-text-icon,
+.hp-info-text-container {
+  .av-icon {
+    margin: 0 !important;
+  }
+  .hp-info-text {
+    align-self: center;
+  }
+}
+
+.hp-info-text-container {
+  display: flex;
+  background-color: #d9edf7;
+  border: 1px solid #bce8f1 !important;
+  color: #31708f;
+
+  .av-icon-tooltip {
+    top: 0 !important;
+    cursor: auto;
+  }
+}
+
+::-webkit-input-placeholder {
+  opacity: 0.8 !important;
+  font-style: italic;
+}
+
+::-moz-placeholder,
+:-moz-placeholder {
+  opacity: 0.8 !important;
+  font-style: italic;
+}
+
+:-ms-input-placeholder {
+  opacity: 0.8 !important;
+  font-style: italic;
+}
+
+.av-card.av-card-child.av-card-error-summary {
+  border: 1px solid $input-error-border-color;
+  background-color: $input-error-bg-color;
+
+  & > h3 {
+    color: $input-error-color;
+    font-family: 'Roboto-Light';
+  }
+
+  & ul > li > a {
+    color: $headings-color;
+    text-decoration: none;
+  }
+}
+
+#loading-widget {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  text-align: center;
+  margin-left: auto;
+  margin-right: auto;
+  font-family: 'Roboto-Bold';
+  font-size: 3rem;
+  background-color: green;
+  color: white;
+  padding: 1rem;
+}
+
+.av-timeline {
+  margin-top: 1rem;
+  margin-bottom: 4rem;
+
+  & > .av-timeline-line > .av-timeline-line-incomplete {
+    background-image: url(/assets/svg/gray-dash-icon.svg);
+  }
+
+  & ul > li {
+    cursor: pointer;
+    & > label {
+      cursor: pointer;
+    }
+
+    &.av-active {
+      & > label {
+        font-family: 'Roboto-Bold';
+      }
+    }
+
+    &.av-highest-touched {
+      & > .av-timeline-icon > .av-icon {
+        fill: #aaa;
+      }
+    }
+
+    &.av-error {
+      border-color: red;
+      & > .av-timeline-icon > .av-icon {
+        fill: red;
+      }
+
+      & > label {
+        color: red;
+      }
+    }
+  }
+}
+
+ul.hp-autocomplete-list {
+  max-height: 300px;
+  display: block;
+  overflow-y: auto;
+}
+
+@import 'standard';
+@import 'fluent';

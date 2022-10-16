@@ -1,0 +1,243 @@
+{
+  "questionSetId": "0a4a926f-0f05-4843-8790-4af5742d3fb3",
+  "version": "v0.0.0",
+  "friendlyName": "Sections & Navigation",
+  "timestamp": "2020-01-01T00:00:00.000Z",
+  "stylesheets": [],
+  "questionFormats": [
+    "standard"
+  ],
+  "questions": {
+    "question-1-section-1": {
+      "questionId": "question-1-section-1",
+      "name": "firstName",
+      "dataType": "string",
+      "data": {
+        "textAndStyle": {
+          "standard": {
+            "controlType": "TextInput",
+            "questionText": "First name"
+          }
+        }
+      },
+      "sectionId": "section-1",
+      "order": 1
+    },
+    "section-1-prev-button": {
+      "questionId": "section-1-prev-button",
+      "name": "prevButton",
+      "dataType": "button",
+      "default": false,
+      "data": {
+        "textAndStyle": {
+          "standard": {
+            "controlType": "Button",
+            "buttonText": "<< Back",
+            "buttonStyle": "success",
+            "type": "button"
+          }
+        },
+        "dependentActions": [
+          {
+            "action": "previous-section"
+          }
+        ]
+      },
+      "disabled": true,
+      "groupId": "button-grouping",
+      "sectionId": "section-1",
+      "order": 30,
+      "groupOrder": 0
+    },
+    "section-1-next-button": {
+      "questionId": "section-1-next-button",
+      "name": "nextButton",
+      "dataType": "button",
+      "default": false,
+      "data": {
+        "textAndStyle": {
+          "standard": {
+            "controlType": "Button",
+            "buttonText": "Next >>",
+            "buttonStyle": "success",
+            "type": "button"
+          }
+        },
+        "dependentActions": [
+          {
+            "action": "next-section"
+          }
+        ]
+      },
+      "groupId": "button-grouping",
+      "sectionId": "section-1",
+      "order": 30,
+      "groupOrder": 0
+    },
+    "question-1-section-2": {
+      "questionId": "question-1-section-2",
+      "name": "middleName",
+      "dataType": "string",
+      "data": {
+        "textAndStyle": {
+          "standard": {
+            "controlType": "TextInput",
+            "questionText": "Middle name"
+          }
+        }
+      },
+      "sectionId": "section-2",
+      "order": 1
+    },
+    "section-2-prev-button": {
+      "questionId": "section-2-prev-button",
+      "name": "prevButton",
+      "dataType": "button",
+      "default": false,
+      "data": {
+        "textAndStyle": {
+          "standard": {
+            "controlType": "Button",
+            "buttonText": "<< Back",
+            "buttonStyle": "success",
+            "type": "button"
+          }
+        },
+        "dependentActions": [
+          {
+            "action": "previous-section"
+          }
+        ]
+      },
+      "groupId": "button-grouping",
+      "sectionId": "section-2",
+      "order": 30,
+      "groupOrder": 0
+    },
+    "section-2-next-button": {
+      "questionId": "section-2-next-button",
+      "name": "nextButton",
+      "dataType": "button",
+      "default": false,
+      "data": {
+        "textAndStyle": {
+          "standard": {
+            "controlType": "Button",
+            "buttonText": "Next >>",
+            "buttonStyle": "success",
+            "type": "button"
+          }
+        },
+        "dependentActions": [
+          {
+            "action": "next-section"
+          }
+        ]
+      },
+      "groupId": "button-grouping",
+      "sectionId": "section-2",
+      "order": 30,
+      "groupOrder": 0
+    },
+    "question-1-section-3": {
+      "questionId": "question-1-section-3",
+      "name": "lastName",
+      "dataType": "string",
+      "data": {
+        "textAndStyle": {
+          "standard": {
+            "controlType": "TextInput",
+            "questionText": "Last name"
+          }
+        },
+        "validation": [
+          {
+            "type": "required"
+          }
+        ]
+      },
+      "sectionId": "section-3",
+      "order": 1
+    },
+    "section-3-prev-button": {
+      "questionId": "section-3-prev-button",
+      "name": "prevButton",
+      "dataType": "button",
+      "default": false,
+      "data": {
+        "textAndStyle": {
+          "standard": {
+            "controlType": "Button",
+            "buttonText": "<< Back",
+            "buttonStyle": "success",
+            "type": "button"
+          }
+        },
+        "dependentActions": [
+          {
+            "action": "previous-section"
+          }
+        ]
+      },
+      "groupId": "button-grouping",
+      "sectionId": "section-3",
+      "order": 30,
+      "groupOrder": 0
+    },
+    "section-3-next-button": {
+      "questionId": "section-3-next-button",
+      "name": "nextButton",
+      "dataType": "button",
+      "default": false,
+      "data": {
+        "textAndStyle": {
+          "standard": {
+            "controlType": "Button",
+            "buttonText": "Next >>",
+            "buttonStyle": "success",
+            "type": "button"
+          }
+        },
+        "dependentActions": [
+          {
+            "action": "next-section"
+          }
+        ]
+      },
+      "disabled": true,
+      "groupId": "button-grouping",
+      "sectionId": "section-3",
+      "order": 30,
+      "groupOrder": 0
+    }
+  },
+  "sections": {
+    "section-1": {
+      "sectionId": "section-1",
+      "title": "Section 1",
+      "isTemplate": false,
+      "position": 1
+    },
+    "section-2": {
+      "sectionId": "section-2",
+      "title": "Section 2",
+      "isTemplate": false,
+      "position": 2
+    },
+    "section-3": {
+      "sectionId": "section-3",
+      "title": "Section 3",
+      "isTemplate": false,
+      "position": 3
+    },
+    "button-grouping": {
+      "sectionId": "button-grouping",
+      "title": "Button grouping",
+      "isTemplate": false,
+      "position": 0,
+      "controlType": "ButtonGroup"
+    }
+  },
+  "commonLookups": {},
+  "answers": {}
+}

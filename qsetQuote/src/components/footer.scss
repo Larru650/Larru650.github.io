@@ -1,0 +1,42 @@
+.hp-footer {
+  margin-bottom: 2rem;
+  background-color: #666;
+  color: white;
+  h3 {
+    color: white;
+  }
+
+  .trustpilot {
+    margin-bottom: 1rem;
+    #trustpilot-logo {
+      & > img {
+        height: 100px;
+      }
+    }
+  }
+
+  .footer-text {
+    a {
+      text-decoration: none;
+      color: white;
+    }
+
+    ul {
+      padding-left: 0;
+      & > li {
+        display: inline-block;
+      }
+    }
+  }
+
+  .safe-hands {
+    & h3 {
+      font-size: 14px;
+      font-family: 'Roboto-Regular';
+    }
+
+    & > .safe-hands-logo {
+      display: inline-block;
+    }
+  }
+}

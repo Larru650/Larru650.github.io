@@ -1,0 +1,88 @@
+[environments]
+
+  [environments.richard]
+    name = "questionsetdev"
+    registry = "acrdevne.azurecr.io"
+    container-builder = "docker"
+    namespace = "richard"
+    wait = true
+    watch = false
+    watch-delay = 2
+    auto-connect = false
+    dockerfile = "Dockerfile"
+    chart = ""
+    set = [
+        "app.port=3001",
+        "app.debugMode=true",
+        "app.releaseVersion=1.0.0",
+        "app.schemeAndHost=https://home-protect-typescript-dev.homeprotect.co.uk",
+        "app.endpoint=/questionset",
+        "app.serveStaticContent=true",
+        "app.useSecureServer=false",
+        "app.adfsAuthEnabled=false",
+        "app.adfsIssuerUri=https://adfs.avantiagroup.com/adfs/ls/",
+        "app.adfsIssuerThumbprint=F0715A005B7F227289C2CCD9FB9802A7027CB384",
+        "app.featureToggleServiceUri=https://services-dev.avantiagroup.co.uk/FeatureToggleService/api/FeatureToggles/{application-name}",
+        "app.featureToggleExceptionValidityWindow=00:01:00",
+        "app.environment=dev",
+        "app.namespace=richard"
+    ]
+    resource-group-name = "cortexAcrDevNe-rg"
+
+  [environments.development]
+    name = "questionsetdev"
+    registry = "acrdevne.azurecr.io"
+    container-builder = "docker"
+    namespace = "local-dev"
+    wait = true
+    watch = false
+    watch-delay = 2
+    auto-connect = false
+    dockerfile = "Dockerfile"
+    chart = ""
+    set = [
+        "app.port=3001",
+        "app.debugMode=true",
+        "app.releaseVersion=1.0.0",
+        "app.schemeAndHost=https://home-protect-typescript-dev.homeprotect.co.uk",
+        "app.endpoint=/",
+        "app.serveStaticContent=true",
+        "app.useSecureServer=false",
+        "app.adfsAuthEnabled=true",
+        "app.adfsIssuerUri=https://adfs.avantiagroup.com/adfs/ls/",
+        "app.adfsIssuerThumbprint=F0715A005B7F227289C2CCD9FB9802A7027CB384",
+        "app.featureToggleServiceUri=https://services-dev.avantiagroup.co.uk/FeatureToggleService/api/FeatureToggles/{application-name}",
+        "app.featureToggleExceptionValidityWindow=00:01:00",
+        "app.environment=dev",
+        "app.namespace=local-dev"
+    ]
+    resource-group-name = "cortexAcrDevNe-rg"
+
+  [environments.test]
+    name = "questionsettst"
+    registry = "acrdevne.azurecr.io"
+    namespace = "local-tst"
+    container-builder = "docker"
+    wait = true
+    watch = false
+    watch-delay = 2
+    auto-connect = false
+    dockerfile = "Dockerfile"
+    chart = ""
+    set = [
+        "app.port=3001",
+        "app.debugMode=true",
+        "app.releaseVersion=1.0.0",
+        "app.schemeAndHost=https://home-protect-typescript-tst.homeprotect.co.uk",
+        "app.endpoint=/",
+        "app.serveStaticContent=true",
+        "app.useSecureServer=false",
+        "app.adfsAuthEnabled=true",
+        "app.adfsIssuerUri=https://adfs.avantiagroup.com/adfs/ls/",
+        "app.adfsIssuerThumbprint=F0715A005B7F227289C2CCD9FB9802A7027CB384",
+        "app.featureToggleServiceUri=https://services-dev.avantiagroup.co.uk/FeatureToggleService/api/FeatureToggles/{application-name}",
+        "app.featureToggleExceptionValidityWindow=00:01:00",
+        "app.environment=tst",
+        "app.namespace=local-tst"
+    ]
+    resource-group-name = "cortexAcrDevNe-rg"

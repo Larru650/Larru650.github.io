@@ -1,0 +1,47 @@
+{
+  "name": "npm-consider",
+  "version": "1.7.0",
+  "description": "Check npm package dependencies, stats and impact on your package before installing it",
+  "main": "index.js",
+  "scripts": {
+    "test": "eslint ./lib/ ./bin/"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/delfrrr/npm-consider.git"
+  },
+  "keywords": [
+    "npm",
+    "install",
+    "stats",
+    "package"
+  ],
+  "author": "",
+  "license": "(MIT AND Artistic-2.0)",
+  "bin": {
+    "npm-consider": "./bin/npm-consider.js"
+  },
+  "bugs": {
+    "url": "https://github.com/delfrrr/npm-consider/issues"
+  },
+  "homepage": "https://github.com/delfrrr/npm-consider#readme",
+  "devDependencies": {
+    "eslint": "^4.5.0",
+    "eslint-config-airbnb-base": "^11.3.2",
+    "eslint-plugin-import": "^2.7.0"
+  },
+  "dependencies": {
+    "cli-table3": "^0.5.0",
+    "colors": "^1.1.2",
+    "commander": "^2.11.0",
+    "filesize": "^3.5.10",
+    "inquirer": "^3.2.3",
+    "moment": "^2.18.1",
+    "node-fetch": "^1.7.2",
+    "promise-queue": "^2.2.3",
+    "semver": "^5.4.1",
+    "spdx-correct": "^2.0.4",
+    "spdx-satisfies": "^0.1.3",
+    "rc": "^1.2.8"
+  }
+}

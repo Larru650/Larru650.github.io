@@ -1,0 +1,59 @@
+.hp-fluent {
+  &.hp-text-input,
+  &.hp-dropdown {
+    margin-bottom: 1rem;
+  }
+
+  &.hp-text-input,
+  &.hp-dropdown {
+    & .av-field-section {
+      font-size: 20px;
+      line-height: $line-height-std;
+      & .input-group {
+        & input {
+          min-width: 100px;
+          font-size: 20px;
+          line-height: $line-height-std;
+        }
+
+        & .input-group-append {
+          & button {
+            position: relative;
+            top: -1px;
+          }
+        }
+      }
+    }
+
+    &.av-input-error {
+      & input {
+        border-color: red;
+      }
+    }
+  }
+}
+
+/*
+The !important marks are required.
+Ignore the 'float' warning.
+*/
+.fluent-input {
+  float: inherit !important;
+  display: inline-block !important;
+}
+
+.fluent-error {
+  color: red;
+}
+
+.fluent-error-message {
+  display: inline-block;
+  color: red;
+  font-size: smaller;
+  font-weight: normal;
+  padding-left: 1rem;
+}
+
+.fluent-hidden {
+  display: none !important;
+}

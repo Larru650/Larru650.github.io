@@ -1,0 +1,479 @@
+{
+  "questionSetId": "e59b7be6-1fcb-4435-a0aa-8bec4a1de8d8",
+  "version": "v0.0.0",
+  "friendlyName": "Address Lookup for Billing",
+  "timestamp": "2020-12-07T00:00:00.000Z",
+  "stylesheets": [],
+  "questionFormats": [
+    "standard"
+  ],
+  "questions": {
+    "validate-fields-button": {
+      "questionId": "validate-fields-button",
+      "name": "button",
+      "dataType": "button",
+      "data": {
+        "textAndStyle": {
+          "standard": {
+            "controlType": "Button",
+            "buttonText": "Validate fields"
+          }
+        },
+        "dependentActions": [
+          {
+            "action": "validate-fields"
+          }
+        ]
+      },
+      "sectionId": "main",
+      "order": 1
+    },
+    "lastName": {
+      "questionId": "lastName",
+      "name": "lastName",
+      "dataType": "string",
+      "data": {
+        "textAndStyle": {
+          "standard": {
+            "controlType": "TextInput",
+            "questionText": "Last name"
+          }
+        },
+        "validation": [
+          {
+            "type": "required"
+          }
+        ]
+      },
+      "sectionId": "main",
+      "order": 1
+    },
+    "billingPropertyNameNumberSearchTerm": {
+      "questionId": "billingPropertyNameNumberSearchTerm",
+      "name": "billingPropertyNameNumberSearchTerm",
+      "dataType": "string",
+      "data": {
+        "textAndStyle": {
+          "standard": {
+            "controlType": "TextInput",
+            "questionText": "House number or name"
+          }
+        },
+        "dependentAnswers": {
+          "billingAddressId": [
+            {
+              "answer": ""
+            }
+          ]
+        }
+      },
+      "groupId": "address",
+      "sectionId": "main",
+      "order": 1
+    },
+    "billingPostcodeSearchTerm": {
+      "questionId": "billingPostcodeSearchTerm",
+      "name": "billingPostcodeSearchTerm",
+      "dataType": "string",
+      "data": {
+        "textAndStyle": {
+          "standard": {
+            "controlType": "TextInput",
+            "questionText": "Postcode"
+          }
+        },
+        "dependentAnswers": {
+          "billingAddressId": [
+            {
+              "answer": ""
+            }
+          ]
+        },
+        "validation": [
+          {
+            "type": "required"
+          }
+        ]
+      },
+      "groupId": "address",
+      "sectionId": "main",
+      "order": 1
+    },
+    "billingPropertyNameNumber": {
+      "questionId": "billingPropertyNameNumber",
+      "name": "billingPropertyNameNumber",
+      "dataType": "string",
+      "data": {
+        "textAndStyle": {
+          "standard": {
+            "controlType": "TextInput",
+            "questionText": "House number or name"
+          }
+        },
+        "dependentAnswers": {
+          "billingAddressId": [
+            {
+              "answer": ""
+            }
+          ]
+        }
+      },
+      "groupId": "address",
+      "sectionId": "main",
+      "order": 1
+    },
+    "billingPostcode": {
+      "questionId": "billingPostcode",
+      "name": "billingPostcode",
+      "dataType": "string",
+      "data": {
+        "textAndStyle": {
+          "standard": {
+            "controlType": "TextInput",
+            "questionText": "Postcode"
+          }
+        },
+        "dependentAnswers": {
+          "billingAddressId": [
+            {
+              "answer": ""
+            }
+          ]
+        },
+        "validation": [
+          {
+            "type": "required",
+            "condition": "this.isElementVisible(fieldName)"
+          }
+        ]
+      },
+      "groupId": "address",
+      "sectionId": "main",
+      "order": 1
+    },
+    "billingAddressLookupButton": {
+      "questionId": "billingAddressLookupButton",
+      "name": "billingAddressLookupButton",
+      "dataType": "button",
+      "data": {
+        "textAndStyle": {
+          "standard": {
+            "controlType": "Button",
+            "buttonText": "Lookup"
+          }
+        },
+        "dependentActions": [
+          {
+            "action": "validate-fields",
+            "props": {
+              "fieldsToValidate": [
+                "billingPropertyNameNumberSearchTerm",
+                "billingPostcodeSearchTerm"
+              ]
+            }
+          },
+          {
+            "action": "address-lookup",
+            "props": {
+              "searchFields": [
+                "billingPropertyNameNumberSearchTerm",
+                "billingPostcodeSearchTerm"
+              ],
+              "lookupResultsId": "billingAddressLookupResults",
+              "lookupButtonId": "billingAddressLookupButton",
+              "noResultsFoundMessage": "No addresses match the values you entered. Try something less specific or enter the address manually!",
+              "errorLoadingAddressesMessage": "We're having problems loading the addresses. Please try again or enter your address manually!"
+            }
+          }
+        ],
+        "validation": [
+          {
+            "type": "custom",
+            "validator": "const showingResults = this.isElementVisible('billingAddressLookupResults');\n  const addressId = fields.get('billingAddressId').value;\n  const usingLookup = this.getAnswerValue('billingAddressEnterManuallyButton') === false;\n  const res = !usingLookup || usingLookup && !!addressId && addressId.length > 0;\n  return showingResults || !showingResults && res;",
+            "message": "You need to search for and select an address"
+          }
+        ]
+      },
+      "groupId": "address",
+      "sectionId": "main",
+      "order": 1
+    },
+    "billingAddressEnterManuallyButton": {
+      "questionId": "billingAddressEnterManuallyButton",
+      "name": "billingAddressEnterManuallyButton",
+      "dataType": "boolean",
+      "default": false,
+      "data": {
+        "textAndStyle": {
+          "standard": {
+            "controlType": "Switch",
+            "questionText": ""
+          }
+        },
+        "lookup": {
+          "false": {
+            "text": "Use address lookup"
+          },
+          "true": {
+            "text": "Enter manually"
+          }
+        }
+      },
+      "groupId": "address",
+      "sectionId": "main",
+      "order": 1
+    },
+    "billingAddressLookupResults": {
+      "questionId": "billingAddressLookupResults",
+      "name": "billingAddressLookupResults",
+      "dataType": "string",
+      "data": {
+        "textAndStyle": {
+          "standard": {
+            "controlType": "DropDownList",
+            "placeholder": "Select an address",
+            "questionText": "",
+            "sortItemsBy": "numberPrefixedStringSorter"
+          }
+        },
+        "dependentActions": [
+          {
+            "action": "address-select",
+            "props": {
+              "lookupResultsId": "billingAddressLookupResults",
+              "lookupButtonId": "billingAddressLookupButton",
+              "searchFields": [
+                "billingPropertyNameNumberSearchTerm",
+                "billingPostcodeSearchTerm"
+              ],
+              "errorLoadingAddressMessage": "We're having problems loading the address you selected. Please try again or enter your address manually!"
+            }
+          }
+        ],
+        "dependentAnswers": {
+          "billingPropertyNameNumber": [
+            {
+              "condition": "!!this.getAnswer(sourceQuestionId).partial",
+              "answerExpr": "this.getAnswer(sourceQuestionId).partial.propertyNameNumber"
+            }
+          ],
+          "billingAddressLine1": [
+            {
+              "condition": "!!this.getAnswer(sourceQuestionId).partial",
+              "answerExpr": "this.getAnswer(sourceQuestionId).partial.addressLine1"
+            }
+          ],
+          "billingAddressLine2": [
+            {
+              "condition": "!!this.getAnswer(sourceQuestionId).partial",
+              "answerExpr": "this.getAnswer(sourceQuestionId).partial.addressLine2"
+            }
+          ],
+          "billingTownCity": [
+            {
+              "condition": "!!this.getAnswer(sourceQuestionId).partial",
+              "answerExpr": "this.getAnswer(sourceQuestionId).partial.townCity"
+            }
+          ],
+          "billingCounty": [
+            {
+              "condition": "!!this.getAnswer(sourceQuestionId).partial",
+              "answerExpr": "this.getAnswer(sourceQuestionId).partial.county"
+            }
+          ],
+          "billingPostcode": [
+            {
+              "condition": "!!this.getAnswer(sourceQuestionId).partial",
+              "answerExpr": "this.getAnswer(sourceQuestionId).partial.postcode"
+            }
+          ],
+          "billingAddressId": [
+            {
+              "condition": "!!this.getAnswer(sourceQuestionId).partial",
+              "answerExpr": "this.getAnswer(sourceQuestionId).partial.addressId"
+            }
+          ]
+        },
+        "validation": [
+          {
+            "type": "required",
+            "condition": "this.isElementVisible(fieldName)",
+            "message": "You need to select an address"
+          }
+        ]
+      },
+      "groupId": "address",
+      "sectionId": "main",
+      "order": 1
+    },
+    "billingAddressLine1": {
+      "questionId": "billingAddressLine1",
+      "name": "billingAddressLine1",
+      "dataType": "string",
+      "data": {
+        "textAndStyle": {
+          "standard": {
+            "controlType": "TextInput",
+            "questionText": "Address Line 1"
+          }
+        },
+        "dependentAnswers": {
+          "billingAddressId": [
+            {
+              "answer": ""
+            }
+          ]
+        },
+        "validation": [
+          {
+            "type": "required",
+            "condition": "this.isElementVisible(fieldName)"
+          }
+        ]
+      },
+      "groupId": "address",
+      "sectionId": "main",
+      "order": 1
+    },
+    "billingAddressLine2": {
+      "questionId": "billingAddressLine2",
+      "name": "billingAddressLine2",
+      "dataType": "string",
+      "data": {
+        "textAndStyle": {
+          "standard": {
+            "controlType": "TextInput",
+            "questionText": "Address Line 2"
+          }
+        },
+        "dependentAnswers": {
+          "billingAddressId": [
+            {
+              "answer": ""
+            }
+          ]
+        }
+      },
+      "groupId": "address",
+      "sectionId": "main",
+      "order": 1
+    },
+    "billingTownCity": {
+      "questionId": "billingTownCity",
+      "name": "billingTownCity",
+      "dataType": "string",
+      "data": {
+        "textAndStyle": {
+          "standard": {
+            "controlType": "TextInput",
+            "questionText": "Town or City"
+          }
+        },
+        "dependentAnswers": {
+          "billingAddressId": [
+            {
+              "answer": ""
+            }
+          ]
+        },
+        "validation": [
+          {
+            "type": "required",
+            "condition": "this.isElementVisible(fieldName)"
+          }
+        ]
+      },
+      "groupId": "address",
+      "sectionId": "main",
+      "order": 1
+    },
+    "billingCounty": {
+      "questionId": "billingCounty",
+      "name": "billingCounty",
+      "dataType": "string",
+      "data": {
+        "textAndStyle": {
+          "standard": {
+            "controlType": "TextInput",
+            "questionText": "County"
+          }
+        },
+        "dependentAnswers": {
+          "billingAddressId": [
+            {
+              "answer": ""
+            }
+          ]
+        },
+        "validation": [
+          {
+            "type": "required",
+            "condition": "this.isElementVisible(fieldName)"
+          }
+        ]
+      },
+      "groupId": "address",
+      "sectionId": "main",
+      "order": 1
+    },
+    "billingAddressId": {
+      "questionId": "billingAddressId",
+      "name": "billingAddressId",
+      "dataType": "number",
+      "data": {
+        "textAndStyle": {
+          "standard": {
+            "controlType": "TextInput",
+            "questionText": "Billing Address ID"
+          }
+        },
+        "validation": [
+          {
+            "type": "integer",
+            "messages": {}
+          }
+        ]
+      },
+      "groupId": "address",
+      "sectionId": "main",
+      "order": 1
+    },
+    "address-view": {
+      "questionId": "address-view",
+      "name": "addressView",
+      "dataType": "string",
+      "calculatedAnswer": "{{function:getAddressDetail}}",
+      "data": {
+        "textAndStyle": {
+          "standard": {
+            "controlType": "AddressView",
+            "questionText": ""
+          }
+        },
+        "lookup": {
+          "addressControlPrefix": {
+            "text": "billing"
+          }
+        }
+      },
+      "sectionId": "main",
+      "order": 100
+    }
+  },
+  "sections": {
+    "main": {
+      "sectionId": "main",
+      "title": "Billing Address",
+      "position": 1
+    },
+    "address": {
+      "sectionId": "address",
+      "title": "Address Lookup",
+      "isTemplate": false,
+      "position": 0,
+      "controlType": "AddressLookup"
+    }
+  },
+  "commonLookups": {},
+  "answers": {}
+}

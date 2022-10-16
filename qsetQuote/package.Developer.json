@@ -1,0 +1,6 @@
+{
+    "version": "0.0.1",
+    "proxy": "http://localhost:3001",
+    "configurationVersion": "Developer",
+    "port": 3001
+}

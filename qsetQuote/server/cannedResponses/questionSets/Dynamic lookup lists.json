@@ -1,0 +1,98 @@
+{
+  "questionSetId": "6d7ad620-b2ad-4aee-8eeb-1bbc5d194933",
+  "version": "v0.0.0",
+  "friendlyName": "Dynamic lookup lists",
+  "timestamp": "2020-01-01T00:00:00.000Z",
+  "stylesheets": [],
+  "questionFormats": [
+    "standard"
+  ],
+  "questions": {
+    "option-selector": {
+      "questionId": "option-selector",
+      "name": "optionSelector",
+      "dataType": "string",
+      "default": "sedentary",
+      "data": {
+        "textAndStyle": {
+          "standard": {
+            "controlType": "DropDownList",
+            "questionText": "Options to display"
+          }
+        },
+        "dependentAnswers": {
+          "options": [
+            {
+              "condition": "{{answer}} is active",
+              "answer": [
+                "cycling",
+                "running"
+              ]
+            },
+            {
+              "condition": "{{answer}} is sedentary",
+              "answer": [
+                "driving"
+              ]
+            }
+          ]
+        },
+        "lookup": {
+          "active": null,
+          "sedentary": null,
+          "any": null
+        }
+      },
+      "sectionId": "a245f641-0805-4551-a9be-e7cb3e2c2cef",
+      "order": 1
+    },
+    "options": {
+      "questionId": "options",
+      "name": "options",
+      "dataType": "array",
+      "data": {
+        "textAndStyle": {
+          "standard": {
+            "controlType": "ButtonList",
+            "questionText": "Available options"
+          }
+        },
+        "lookup": {
+          "cycling": {
+            "condition": "{{optionSelector}} is in [active, any]"
+          },
+          "running": {
+            "condition": "{{optionSelector}} is in [active, any]"
+          },
+          "walking": {
+            "condition": "{{optionSelector}} is in [active, any]"
+          },
+          "sitting": {
+            "condition": "{{optionSelector}} is in [sedentary, any]"
+          },
+          "sleeping": {
+            "condition": "{{optionSelector}} is in [sedentary, any]"
+          },
+          "jumping": {
+            "condition": "{{optionSelector}} is in [active, any]"
+          },
+          "driving": {
+            "condition": "{{optionSelector}} is in [sedentary, any]"
+          }
+        }
+      },
+      "isMultiSelect": true,
+      "sectionId": "a245f641-0805-4551-a9be-e7cb3e2c2cef",
+      "order": 1
+    }
+  },
+  "sections": {
+    "a245f641-0805-4551-a9be-e7cb3e2c2cef": {
+      "sectionId": "a245f641-0805-4551-a9be-e7cb3e2c2cef",
+      "title": "Main",
+      "position": 1
+    }
+  },
+  "commonLookups": {},
+  "answers": {}
+}

@@ -1,0 +1,143 @@
+{
+  "questionSetId": "fdd9e6ff-c97e-4062-9310-5cdff5cd1426",
+  "version": "v0.0.0",
+  "friendlyName": "Defaulted answers & custom stylesheet",
+  "timestamp": "2020-11-24T00:00:00.000Z",
+  "stylesheets": [
+    "answer-source"
+  ],
+  "questionFormats": [
+    "standard"
+  ],
+  "questions": {
+    "defaultedAnswer": {
+      "questionId": "defaultedAnswer",
+      "name": "defaulted answer",
+      "dataType": "string",
+      "default": "Jack",
+      "data": {
+        "textAndStyle": {
+          "standard": {
+            "controlType": "TextInput",
+            "questionText": "Defaulted answer"
+          }
+        },
+        "validation": [
+          {
+            "type": "required"
+          }
+        ]
+      },
+      "sectionId": "section-one",
+      "order": 1
+    },
+    "defaultedImplicitAnswer": {
+      "questionId": "defaultedImplicitAnswer",
+      "name": "defaulted answer",
+      "dataType": "string",
+      "default": "Bill",
+      "isDefaultImplicit": true,
+      "data": {
+        "textAndStyle": {
+          "standard": {
+            "controlType": "TextInput",
+            "questionText": "Defaulted answer (implicit)"
+          }
+        },
+        "validation": [
+          {
+            "type": "required"
+          }
+        ]
+      },
+      "sectionId": "section-one",
+      "order": 1
+    },
+    "aggregatorAnswer": {
+      "questionId": "aggregatorAnswer",
+      "name": "aggregator answer",
+      "dataType": "number",
+      "default": "5",
+      "data": {
+        "textAndStyle": {
+          "standard": {
+            "controlType": "TextInput",
+            "questionText": "Aggregator answer"
+          }
+        },
+        "validation": [
+          {
+            "type": "required"
+          },
+          {
+            "type": "integer",
+            "messages": {}
+          }
+        ]
+      },
+      "sectionId": "section-one",
+      "order": 1
+    },
+    "customerAnswer": {
+      "questionId": "customerAnswer",
+      "name": "customer answer",
+      "dataType": "string",
+      "default": "Robert",
+      "data": {
+        "textAndStyle": {
+          "standard": {
+            "controlType": "TextInput",
+            "questionText": "Customer answer"
+          }
+        },
+        "validation": [
+          {
+            "type": "required"
+          }
+        ]
+      },
+      "sectionId": "section-one",
+      "order": 1
+    },
+    "validateButton": {
+      "questionId": "validateButton",
+      "name": "button",
+      "dataType": "button",
+      "data": {
+        "textAndStyle": {
+          "standard": {
+            "controlType": "Button",
+            "buttonText": "Validate fields"
+          }
+        },
+        "dependentActions": [
+          {
+            "action": "validate-fields"
+          }
+        ]
+      },
+      "sectionId": "section-one",
+      "order": 1
+    }
+  },
+  "sections": {
+    "section-one": {
+      "sectionId": "section-one",
+      "title": "Main",
+      "position": 1
+    }
+  },
+  "commonLookups": {},
+  "answers": {
+    "aggregatorAnswer": {
+      "default": null,
+      "customer": null,
+      "aggregator": "7"
+    },
+    "customerAnswer": {
+      "default": null,
+      "customer": "Rob",
+      "aggregator": "Bob"
+    }
+  }
+}

@@ -1,0 +1,102 @@
+apiVersion: skaffold/v1beta15
+kind: Config
+build:
+  tagPolicy:
+    sha256: {}
+  artifacts:
+    - image: acrdevne.azurecr.io/questionsetportal
+profiles:
+  - name: albert
+    deploy:
+      helm:
+        releases:
+          - name: questionsetportalalbert
+            chartPath: charts/questionsetportal
+            valuesFiles:
+              - charts/questionsetportal/values.yaml
+            namespace: albert
+            recreatePods: true
+            setValues:
+              app.adfsAuthEnabled: true
+              app.adfsIssuerThumbprint: F0715A005B7F227289C2CCD9FB9802A7027CB384
+              app.adfsIssuerUri: https://adfs.avantiagroup.com/adfs/ls/
+              app.databaseCollectionName: CommonTable
+              app.databaseEndpoint: https://customerdev-cosmos.documents.azure.com:443/
+              app.databaseKey: RVeVcofyAvfwS3crHwbg4LaZ7cmCKZdmI6MYr8hV2lwDp3We2HtHldSYu4FsWoClO2nRqFx9yBRsawcQXCh2TQ==
+              app.databaseName: CustomerPortalDev
+              app.ddApplicationId: 0554b446-b12d-496d-8f17-d8a3780bc772
+              app.ddClientToken: pub39f12a277235769599c2c429bbf21098
+              app.ddRumEnabled: false
+              app.ddTraceEnabled: false
+              app.debugFlags: TimeTaken
+              app.developerModeEnabled: false
+              app.endpoint: 
+              app.environment: dev
+              app.gtmEnabled: true
+              app.gtmId: GTM-5LMZFVW
+              app.homeProtectHomepageEnabled: true
+              app.hotjarEnabled: false
+              app.hotjarId: 0
+              app.hotjarTrackingCode: 0
+              app.name: questionsetportal
+              app.namespace: albert
+              app.optimisationEnabled: true
+              app.port: 3001
+              app.quoteAndBuyServiceUri: https://quote-staging.homeprotect.co.uk/api/
+              app.releaseVersion: 1.0.0
+              app.schemeAndHost: https://albert.avantiagroup.co.uk
+              app.serveStaticContent: true
+              app.useFilePersistence: true
+              app.useSecureServer: false
+              istio.hostname: albert
+  - name: development
+    deploy:
+      helm:
+        releases:
+          - name: questionsetportaldev
+            chartPath: charts/questionsetportal
+            valuesFiles:
+              - charts/questionsetportal/values.yaml
+            namespace: albert
+            recreatePods: true
+            setValues:
+              app.port: 3001
+              app.endpoint:
+              app.releaseVersion: 1.0.0
+              app.schemeAndHost: https://albert.avantiagroup.co.uk
+              app.serviceApiUrl: http://questionsetservice/
+              app.serveStaticContent: true
+              app.useSecureServer: false
+              app.adfsAuthEnabled: true
+              app.adfsIssuerUri: https://adfs.avantiagroup.com/adfs/ls/
+              app.adfsIssuerThumbprint: F0715A005B7F227289C2CCD9FB9802A7027CB384
+              app.featureToggleServiceUri: https://services-dev.avantiagroup.co.uk/FeatureToggleService/api/FeatureToggles/{application-name}
+              app.featureToggleExceptionValidityWindow: 00:01:00
+              app.namespace: albert
+              istio.hostname: albert
+              app.environment: dev
+  - name: test
+    deploy:
+      helm:
+        releases:
+          - name: questionsetportaltst
+            chartPath: charts/questionsetportal
+            valuesFiles:
+              - charts/questionsetportal/values.yaml
+            namespace: albert
+            recreatePods: true
+            setValues:
+              app.port: 3001
+              app.releaseVersion: 1.0.0
+              app.schemeAndHost: https://albert.avantiagroup.co.uk
+              app.endpoint:
+              app.serviceApiUrl: http://questionsetservice/
+              app.serveStaticContent: true
+              app.useSecureServer: false
+              app.adfsAuthEnabled: true
+              app.adfsIssuerUri: https://adfs.avantiagroup.com/adfs/ls/
+              app.adfsIssuerThumbprint: F0715A005B7F227289C2CCD9FB9802A7027CB384
+              app.featureToggleServiceUri: https://services-tst.avantiagroup.co.uk/FeatureToggleService/api/FeatureToggles/{application-name}
+              app.featureToggleExceptionValidityWindow: 00:01:00
+              app.environment: tst
+              app.namespace: customer-tst

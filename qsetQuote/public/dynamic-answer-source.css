@@ -1,0 +1,24 @@
+.hp-answer-default > label,
+.hp-answer-aggregator > label,
+.hp-answer-customer > label,
+.hp-answer-unanswered > label {
+  border-radius: 6px;
+  padding-left: 0.5rem !important;
+  margin-bottom: 3px;
+}
+
+.hp-answer-unanswered > label {
+  background-color: #ddd;
+}
+
+.hp-answer-default > label {
+  background-color: #fdd;
+}
+
+.hp-answer-aggregator > label {
+  background-color: #ddf;
+}
+
+.hp-answer-customer > label {
+  background-color: #dfd;
+}
