@@ -15,4 +15,8 @@ if (isGithubActions) {
 module.exports = {
   assetPrefix: assetPrefix,
   basePath: basePath,
+  images: {
+    loader: "akamai",
+    path: ""
+  }
 };
