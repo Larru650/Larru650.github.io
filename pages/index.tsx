@@ -23,7 +23,7 @@ export default function Home({ allPostsData }: HomeProps) {
         <title>{siteTitle}</title>
       </Head>
       <section className={utilStyles.headingMd}>
-        <p>[Your Self Introduction]</p>
+        <p>Where Sound Gathers</p>
         <p>
           (This is a sample website - you’ll be building a site like this in{" "}
           <a href="https://nextjs.org/learn">our Next.js tutorial</a>.)
@@ -53,7 +53,7 @@ export const getStaticProps: GetStaticProps = async () => {
   const allPostsData = getSortedPostsData();
   return {
     props: {
-      allPostsData,
-    },
+      allPostsData
+    }
   };
 };
